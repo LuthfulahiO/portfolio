@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-mate",
+  "name": "luthfulahi-portfolio",
   "version": "2.5.1",
-  "description": "Gatsby v2 starter to create a top notch portfolio!",
+  "description": "Luthfulahi Oseni's portfolio!",
   "main": "index.js",
   "scripts": {
     "fix-medium-plugin": "sed -i' ' 's/\\/latest//g' ./node_modules/gatsby-source-medium/gatsby-node.js",
