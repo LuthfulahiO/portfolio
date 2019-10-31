@@ -51,8 +51,8 @@ const Header = () => (
             const homeLink = home && (
               <Image
                 src={Logo}
-                width="80px"
-                alt="Portfolio Logo"
+                width="70px"
+                alt="Luthfulahi Oseni Logo"
                 onClick={home.onClick}
                 style={{
                   cursor: 'pointer',
