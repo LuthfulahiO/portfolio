@@ -50,7 +50,7 @@ const EllipsisHeading = styled(Heading)`
   display: -webkit-inline-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  border-bottom: ${props => props.theme.colors.primary} 5px solid;
+  border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `;
 
 const Post = ({ title, text, image, url, date, time }) => (
@@ -75,7 +75,7 @@ Post.propTypes = {
   time: PropTypes.number.isRequired,
 };
 
-const parsePost = author => postFromGraphql => {
+const parsePost = (author) => (postFromGraphql) => {
   const { id, uniqueSlug, createdAt, title, virtuals } = postFromGraphql;
   const image =
     virtuals.previewImage.imageId &&
@@ -130,7 +130,7 @@ MorePosts.propTypes = {
   number: PropTypes.number,
 };
 
-const edgeToArray = data => data.edges.map(edge => edge.node);
+const edgeToArray = (data) => data.edges.map((edge) => edge.node);
 
 const Writing = () => (
   <StaticQuery
@@ -187,7 +187,15 @@ const Writing = () => (
             <CardContainer minWidth="300px">
               {posts.map(({ Component, ...rest }) => (
                 <Fade bottom key={rest.id}>
-                  <Component {...rest} key={rest.id} />
+                  <Component
+                    {...rest}
+                    {...{
+                      username: author.username,
+                      name: author.name,
+                      number: allMediumPost.totalCount,
+                    }}
+                    key={rest.id}
+                  />
                 </Fade>
               ))}
             </CardContainer>
